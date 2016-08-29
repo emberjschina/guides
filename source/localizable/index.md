@@ -1,67 +1,50 @@
-Welcome to the Ember.js Guides! This documentation will take you from
-total beginner to Ember expert.
+英文原文：[https://guides.emberjs.com/v2.7.0/](https://guides.emberjs.com/v2.7.0/)
 
-## Organization
+# 翻译君在加班翻译ing……
 
-On the left side of each page in the Guides is a table of contents,
-organized into sections that can be expanded to show the topics
-they cover. Both the sections and the topics within each section are
-ordered from the most basic concepts to the more advanced.
+欢迎来到 Ember.js 指南！这份文档将会带领你从新手一直成长到 Ember 专家。
 
-The Guides are intended to contain practical explanations of how to
-build Ember apps, focusing on the most widely-used features of Ember.js.
-For comprehensive documentation of every Ember feature and API, see the
-[Ember.js API documentation](http://emberjs.com/api/).
+## 组织
 
-The Guides begin with an explanation of how to get started with Ember, followed
-by a tutorial on how to build your first Ember app. If you're brand new to
-Ember, we recommend you start off by following along with these first two
-sections of the Guides.
+页面左边是指南的目录，每一个章节解释一个主题内容，每个章节都是有简到难，循序渐进的解释每个知识点。
 
-## Assumptions
+本指南主要包括：如何创建一个Ember应用，解释重点、广泛使用的特性。对于每一个Ember.js特征和API详细介绍，请看[ember.js API文档](http://emberjs.com/api/)。
 
-While we try to make the Guides as beginner-friendly as we can, we must
-establish a baseline so that the guides can keep focused on Ember.js
-functionality. We will try to link to appropriate documentation whenever
-a concept is introduced.
+本指南解释如何开启Ember之旅，接着一步步带你如何去创建一个新的Ember应用。如果你不是Ember小白，请直接跳过本章节，直接从第二章开始。
 
-To make the most out of the guides, you should have a working knowledge of:
+## 前提条件
 
-* **HTML, CSS, JavaScript** - the building blocks of web pages. You can find documentation of each of these technologies at the [Mozilla Developer Network][mdn].
-* **Promises** - the native way to deal with asynchrony in your JavaScript code. See the relevant [Mozilla Developer Network][promises] section.
-* **ES2015 modules** - you will better understand Ember CLI's project structure and import paths if you are comfortable with [ES6 JavaScript Modules][js-modules].
-* **ES2015 syntax** - Ember CLI comes with Babel.js by default so you can
-take advantage of newer language features such as arrow functions, template
-strings, destructuring, and more. You can check the
-[Babel.js documentation][babeljs] or read [Understanding ECMAScript 6][es6]
-online.
+尽管我们努力让这份指南可以对初学者足够友好，但也必须设定一个技术基准以便我们可以把指南的主要内容集中在 Ember.js 自身的特性上。我们会在新的概念出现之时提供相关文档的链接。
 
-## Reporting a problem
+为了更容易理解这份指南，你需要有以下的知识基础：
 
-Typos, missing words, code samples with errors are all considered
-documentation bugs. If you spot one of them, or want to otherwise improve
-the existing guides, we are happy to help you help us!
+* **HTML, CSS, JavaScript** 创建 web 页面的基石。 你可以在[Mozilla Developer Network][mdn]找到这些技术的相关文档。
 
-Some of the more common ways to report a problem with the guides are:
+* **Promises** 用于在 JavaScript 代码中处理异步编程的原生机制。详细介绍请参考[Mozilla Developer Network][promises]
 
-* Using the pencil icon on the top-right of each guide page
-* Opening an issue/pull request to [the GitHub repository][gh-guides]
+* **ES2015 modules** 如果你熟悉[ES6 JavaScript Modules][js-modules]的话就更容易理解[Ember CLI](https://ember-cli.com/)的项目结构及模块导入路径。
 
-Clicking the pencil icon will bring you to GitHub's editor for that
-guide so you can edit right away, using the Markdown markup language.
-This is the fastest way to correct a typo, a missing word, or an error in
-a code sample.
+* **ES2015 syntax**  Ember CLI 默认配备了Babel.js，于是你可以直接享用诸如箭头函数，模版字符串，解构等最新的语言特性。这部分的内容你可以查看[Babel.js documentation][babeljs]或阅读在线书籍[Understanding ECMAScript 6][es6]。
 
-If you wish to make a more significant contribution be sure to check our
-[issue tracker][gh-guides-issues] to see if your issue is already being
-addressed. If you don't find an active issue, open a new one.
 
-If you have any styling questions, or about the contributing process you
-can check out our [contributing guide][gh-guides-contributing]. If your
-question persists, reach us at `#-team-learning` on the [Slack
-group][slackin].
+## 报告问题
 
-Good luck!
+错别字，内容缺漏，有错误的代码示例都是指南的 bugs，如果你有发现其中之一或是想要改进现有指南的话，我们非常乐意辅助你来帮助我们！
+
+常见的报告问题方式包括：
+
+* 点击每页右上角的铅笔图标
+* 在[the GitHub repository][gh-guides]提交issue 或者pull request。
+
+点击铅笔图标将会带你进入指南在 Github 上的编辑器，于是你可以使用 Markdown 标记语言直接开始编辑。这是用于纠正错别字，补充内容缺漏或修正代码示例中错误的最快捷方式。
+
+如果你想要提供更明确的贡献，请事先检索我们的[issue tracker][gh-guides-issues])以确保不要提交重复的问题。如果没有正在处理中的问题那就可以开一个新的。
+
+
+如果你有关于样式的问题，或是关于贡献流程的问题可以参考我们的[contributing guide][gh-guides-contributing]。如果问题得不到解决，请通过[Slack
+group][slackin]中的`#-team-learning`频道联络我们。
+
+祝你好运！
 
 [mdn]: https://developer.mozilla.org/en-US/docs/Web
 [promises]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
