@@ -1,78 +1,72 @@
-Testing is a core part of the Ember framework and its development cycle.
+# 测试简介
 
-Let's assume you are writing an Ember application which will serve as a blog.
-This application would likely include models such as `user` and `post`. It would
-also include interactions such as _login_ and _create post_. Let's finally
-assume that you would like to have [automated tests] in place for your application.
+> 测试是`Ember。js`框架开发环节中很重要的一环。
 
-There are three different classifications of tests that you will need:
-**Acceptance**, **Unit**, and **Integration**.
+现在假设你正在利用Ember框架开发一个博客系统，这个系统包含`user`和`post`模型，有登录及创建博客的操作。最后假设你希望在你的程序里实现自动化测试。
 
-### Acceptance Tests
+## 测试类型
 
-Acceptance tests are used to test user interaction and application flow.  The tests interact
-with the application in the same ways that a user would, by doing things like filling out
-form fields and clicking buttons.  Acceptance tests ensure that the features within
-a project are basically functional, and are valuable in ensuring the core features of a
-project have not regressed, and that the project's goals are being met.
+你一共需要下面这3种类型的测试:
 
-In the example scenario above, some acceptance tests one might write are:
+1. 验收测试Acceptance
+2. 单元测试Unit
+3. 集成测试Integration
 
-* A user is able to log in via the login form.
-* A user is able to create a blog post.
-* After saving a new post successfully, a user is then shown the list of prior posts.
-* A visitor does not have access to the admin panel.
+### 验收测试 Acceptance Tests
 
-### Unit Tests
+验收测试是用来确保程序流程正确，且各类交互特性符合用户预期的测试。
 
-Unit tests are used to test isolated chunks of functionality, or "units".
-They can be written against any isolated application logic.
+验收测试用于确认项目基本功能，保证项目核心功能没有退化，确保该项目的目标得以实现。测试应用的方式和用户与应用程序的交互方式是一致的（比如填写表单，点击按钮）。
 
-Some specific examples of units tests are:
+在上述的场景中，可能会做如下的验收测试:
 
-* A fullname attribute is computed which is the aggregate of its first and last.
-* The serializer properly converts the blog request payload into a blog post model object.
-* Blog dates are properly formatted.
+1. 用户可以通过登录表单登录。
+2. 用户可以创建博客。
+3. 当成功保存一篇博客文章后，程序会返回博客列表给用户。
+4. 访客不能访问管理界面。
 
-### Integration Tests
+### 单元测试 Unit Tests
 
-Integration tests serve as a middle ground between acceptance tests, which only interact
-with the full system through user endpoints, and unit tests, which interact with specific
-code algorithms on a micro level. Integration tests verify interactions between various
-parts of the application, such as behavior between UI controls.  They are valuable
-in ensuring data and actions are properly passed between different parts of the system, and
-provide confidence that parts of the system will work within the application under multiple
-scenarios.
+单元测试是针对程序中的最小可测试单元进行的测试，比如一个类或者一个方法。该测试可以编写与程序逻辑相对的语句来测试相关单元
 
-It is recommended that components be tested with integration tests because the component
-interacts with the system in the same way that it will within the context of the application,
-including being rendered from a template and receiving Ember's lifecycle hooks.
+下面是一些单元测试的具体例子:
 
-Examples of integration tests are:
+1. 用户姓名是由对应的姓和名组合而成的。
+2. 把博客请求数据正确序列化转换为一个博客模型对象。
+3. 正确格式化博客时间。
 
-* An author's full name and date are properly displayed in a blog post.
-* A user is prevented from typing more than 50 characters into post's title field.
-* Submitting a post without a title displays a red validation state on the field and gives the user text indicating that the title is required.
-* The blog post list scrolls to position a new post at the top of the viewport.
+### 集成测试 Integration Tests
 
-### Testing Frameworks
+集成测试是处于单元测试和验收测试之间的测试。集成测试目的是验证客户端与全系统交互，所有单元测试，以及微观层面具体代码的算法逻辑是否都能通过。
 
-[QUnit] is the default testing framework for this guide, but others are supported through third-party addons.
+集成测试用来验证应用程序各个模块相互关系，比如若干个UI控件之间的行为。也可以用于确认数据和动作在系统不同的部件中被正确的传递和执行，同时在给定假设条件下，可以提供系统各部件配合运行的情况。  
 
-### How to Run Your Tests
+我们建议对每个组件都进行集成测试，因为组件各个组件以相同的方式运行在系统的上下文中，并且组件之间也有相互影响，包括从模板中渲染组件、接收组件生命周期回调函数。
 
-Run your tests with `ember test` on the command-line. You can re-run your tests on every file-change with `ember test --server`.
+集成测试示例如下：
 
-Tests can also be executed when you are running a local development server (started by running `ember server`), at the `/tests` URI which renders the `tests/index.html` template.
-A word of caution using this approach:
-Tests run using `ember server` have the environment configuration `development`, whereas tests executed under `ember test --server` are run with the configuration `test`.  This could cause differences in execution, such as which libraries are loaded and available.  Therefore its recommended that you use `ember test --server` for test execution.
+1. 用户姓名和日期正确的显示在每篇博文上
+2. 禁止用户在标题栏内输入超过50个字符
+3. 当提交一个没有标题的博客时，显示红色提醒并给出需要标题的错误信息
+4. 博客列表滚动到最顶端显示最新博客
 
-These commands run your tests using [Testem] to make testing multiple browsers very easy. You can configure Testem using the `testem.js` file in your application root.
+## 测试框架
 
-#### Choosing the Tests to Run
+QUnit是本手册的默认测试框架，但是Ember.js也支持其他第三方的测试框架。
 
-To run a subset of your tests by title use the `--filter` option.  Quickly test your current work `ember test --filter="dashboard"`, or only run a certain type of test `ember test --filter="integration"`.
-When using QUnit it is possible to exclude tests by adding an exclamation point to the beginning of the filter `ember test --filter="!acceptance"`.
+### 如何运行测试
+
+在命令行输入`ember test`来运行测试。也可以通过`ember test -server`命令，在每次文件改动后，重新运行测试。
+
+在本地开发项目的时候可以通过访问`/tests/index.html`来运行你的测试，前提是你需要使用命令`ember server`运行了你的项目。如果你是使用这种方式有一点需要注意：
+
+* 通过`ember server`运行的测试，是在开发环境下的测试，调用的是开发环境下的参数
+* 通过`ember test --server`运行的测试，是在测试环境下的测试，调用的是测试环境下的参数，比如加载的依赖也是不同的。因此我们推荐你使用`ebmer test --server`来运行测试。
+
+
+### 指定测试
+
+使用`--filter`选项来指定运行部分测试。比如:快速运行当前工作的测试使用命令`ember test --filter="dashboard"`、运行指定类型的测试使用命令`ember test --filter="integration"`、可以使用`!`来排除验收测试`ember test --filter="!acceptance"`。
 
 [automated tests]: http://en.wikipedia.org/wiki/Test_automation
 [QUnit]: http://qunitjs.com/
